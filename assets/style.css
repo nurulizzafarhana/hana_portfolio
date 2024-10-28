@@ -1,0 +1,655 @@
+@import url("https://fonts.googleapis.com/css2?family=Cutive&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --color: #3880ff;
+  --green: rgb(8, 80, 14);
+  --back: #f6f8fc;
+  --gray: #d6d6d6;
+  --gray2: #bababa;
+  --text: #262627;
+  --text2: #f6f8fc;
+  --switch: #fff;
+}
+
+.red {
+  --color: #e01e37;
+}
+
+.purple {
+  --color: #822faf;
+}
+
+.green {
+  --color: #38b000;
+}
+
+.yellow {
+  --color: #ffc300;
+}
+
+.pink {
+  --color: #ffafcc;
+}
+
+.orange {
+  --color: #f77f00;
+}
+
+.beige {
+  --color: #f9f5f2;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray);
+  transition: 0.2s;
+  border-radius: 2px;
+  z-index: 5;
+  opacity: 0.6;
+}
+
+body {
+  background-color: var(--back);
+  padding: 0px;
+  margin: 0px;
+  max-height: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: overlay;
+  color: var(--text);
+}
+
+* {
+  font-family: "Work Sans", serif;
+  transition: 0.2s filter, 0.2s scale, 0.2s border-color, 0.2s background-color,
+    0.2s background-image, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Marquee Container Styling */
+marquee {
+  display: inline-block; /* Make it an inline block for proper animation */
+  white-space: nowrap; /* Prevent wrapping */
+  animation: marquee 10s linear forwards; /* Adjust the duration (10s) as needed */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%); /* Start outside the right */
+  }
+  80% {
+    transform: translateX(-100%); /* Move across to the left */
+  }
+  100% {
+    transform: translateX(-100%); /* Stay at the end */
+  }
+}
+
+/* Highlight Name */
+.highlight-animation {
+  display: inline-block; /* Necessary for animations */
+  background-size: 200%; /* Allow for the background to animate */
+  background-image: linear-gradient(to right, #f9f5f2 50%, transparent 50%),
+    linear-gradient(transparent 50%, #fffb00 50%);
+  animation-name: highlight; /* Use your highlight animation */
+  animation-duration: 0.95s; /* Duration of the animation */
+  animation-fill-mode: forwards; /* Keep the end state of the animation */
+}
+
+@keyframes highlight {
+  from {
+    background-position: 0; /* Start position */
+  }
+
+  to {
+    background-position: -100%; /* End position */
+  }
+}
+
+/* code {
+  font-family: "Ubuntu Mono", monospace;
+  background: var(--gray);
+  border-radius: 4px;
+  padding: 3px;
+  color: #ab5457;
+} */
+
+:disabled {
+  cursor: not-allowed !important;
+  filter: saturate(0) brightness(90%) !important;
+  border-color: var(--gray2) !important;
+  box-shadow: none !important;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  padding: 12px;
+  background: var(--color);
+  border: 2px solid black;
+  color: var(--text2);
+  margin: 4px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0px black;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+button:hover:not(:disabled),
+input[type="button"]:hover:not(:disabled),
+input[type="submit"]:hover:not(:disabled),
+input[type="reset"]:hover:not(:disabled) {
+  filter: brightness(90%);
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active,
+input[type="reset"]:active {
+  scale: 0.98;
+  filter: brightness(80%);
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border: 2px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: var(--back);
+  box-shadow: 2px 2px 0px black;
+}
+
+input[type="radio"]:hover:not(:disabled) {
+  filter: brightness(90%);
+}
+
+input[type="radio"]:checked {
+  transform: translate(2px, 2px);
+  background-color: var(--color);
+  box-shadow: none;
+  background-image: url("https://moderncss.goodvessel92551.repl.co/tick.svg");
+}
+
+textarea {
+  border: 2px solid black;
+  border-radius: 3px;
+  margin: 4px;
+  background: none;
+  padding: 5px;
+  box-sizing: border-box;
+  resize: none;
+  color: var(--text);
+  box-shadow: 2px 2px 0px black;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="tel"],
+input[type="url"] {
+  border: 2px solid black;
+  color: var(--text);
+
+  /* height: 25px; */
+  border-radius: 4px;
+  background: none;
+  /* margin: 4px; */
+  box-shadow: 2px 2px 0px black;
+  padding: 5px;
+}
+input[type="text"]:focus,
+input[type="search"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:active,
+input[type="url"]:focus,
+textarea:focus {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+input[type="text"]:hover:not(:disabled),
+input[type="search"]:hover:not(:disabled),
+input[type="email"]:hover:not(:disabled),
+input[type="number"]:hover:not(:disabled),
+input[type="url"]:hover:not(:disabled),
+input[type="password"]:hover:not(:disabled),
+input[type="tel"]:hover:not(:disabled),
+textarea:hover:not(:disabled) {
+  filter: brightness(90%);
+}
+
+input[type="text"]:focus,
+input[type="search"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="url"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+  filter: brightness(80%);
+  outline: none;
+}
+
+::placeholder {
+  color: var(--gray);
+}
+
+input[type="hidden"] {
+  display: none;
+}
+
+input[type="checkbox"]:not(.switch) {
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  border: 2px solid black;
+  background: var(--back);
+  cursor: pointer;
+  box-shadow: 2px 2px 0px black;
+}
+
+input[type="checkbox"]:not(.switch):checked {
+  background-color: var(--color);
+  box-shadow: none;
+  transform: translate(2px, 2px);
+  background-image: url("https://moderncss.goodvessel92551.repl.co/tick.svg");
+}
+
+.switch {
+  appearance: none;
+  width: 50px;
+  background-color: var(--gray);
+  border: 2px solid black;
+  box-shadow: 2px 2px 0px black;
+  height: 30px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.switch::after {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background: var(--switch);
+  display: block;
+  border-radius: 50%;
+  transform: translate(3px, 2px);
+  transition: 0.2s transform, 0.2s box-shadow;
+  border: 2px solid black;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 0px black;
+}
+
+.switch:checked::after {
+  transform: translate(21px, 2px);
+  box-shadow: none;
+}
+
+.switch:checked {
+  background-color: var(--color);
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+input[type="range"] {
+  appearance: none;
+  background: var(--gray);
+  height: 2px;
+  border-radius: 2px;
+  width: 200px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  height: 25px;
+  width: 25px;
+  background-color: var(--color);
+  border: 2px solid black;
+  box-shadow: 2px 2px 0px black;
+  border-radius: 50%;
+  transition: 0.2s box-shadow, 0.2s transform;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+input[type="range"]::-moz-range-thumb {
+  appearance: none;
+  height: 25px;
+  width: 25px;
+  background-color: var(--color);
+  border: 2px solid black;
+  box-shadow: 2px 2px 0px black;
+  border-radius: 50%;
+  transition: 0.2s box-shadow, 0.2s transform;
+}
+
+input[type="range"]::-moz-range-thumb:active {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+:link {
+  color: var(--text);
+  text-decoration: none;
+  /* border-bottom: 2px solid black; */
+}
+
+:link:hover:not(:disabled) {
+  filter: brightness(90%);
+  border-color: var(--color);
+}
+
+:visited {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gray);
+}
+
+:visited:hover:not(:disabled) {
+  filter: brightness(90%);
+  border-color: #a64dff;
+}
+
+select {
+  appearance: none;
+  padding: 8px 32px 8px 8px;
+  background: #fff;
+  box-shadow: 1px 1px 0px black;
+  border: 2px solid black;
+  border-radius: 4px;
+  color: var(--text);
+  background-image: url("https://Moderncss.goodvessel92551.repl.co/down.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 20px 20px;
+  cursor: pointer;
+}
+
+select:hover:not(:disabled) {
+  filter: brightness(90%);
+}
+
+select:focus {
+  border-radius: 4px 4px 0px 0px;
+  box-shadow: none;
+  transform: translate(2px, 2px);
+  outline: none;
+  filter: brightness(80%);
+}
+
+p {
+  text-align: justify;
+}
+
+h1 {
+  color: var(--text);
+  font-weight: bolder;
+}
+
+h2 {
+  color: var(--text);
+  font-weight: bold;
+  filter: saturate(0.9);
+}
+
+h3 {
+  color: var(--text);
+  font-weight: bold;
+  filter: saturate(0.8);
+}
+
+h4 {
+  color: var(--text);
+  font-weight: bold;
+  filter: saturate(0.7);
+}
+
+h5 {
+  color: var(--text);
+  font-weight: bold;
+  filter: saturate(0.6);
+}
+
+h6 {
+  color: var(--text);
+  font-weight: bold;
+  filter: saturate(0.5);
+}
+
+input[type="date"],
+input[type="time"],
+input[type="week"],
+input[type="datetime"],
+input[type="datetime-local"] {
+  border: 2px solid black;
+  color: var(--text);
+  height: 25px;
+  border-radius: 4px;
+  background: none;
+  margin: 4px;
+  box-shadow: 2px 2px 0px black;
+  padding: 5px;
+}
+
+input[type="date"]:hover:not(:disabled),
+input[type="time"]:hover:not(:disabled),
+input[type="week"]:hover:not(:disabled),
+input[type="datetime"]:hover:not(:disabled),
+input[type="datetime-local"]:hover:not(:disabled) {
+  filter: brightness(90%);
+}
+
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+input[type="file"] {
+  padding: 3px;
+  border: 2px solid black;
+  border-radius: 4px;
+  margin: 4px;
+  box-shadow: 1px 1px 0px black;
+}
+
+input[type="file"]::file-selector-button {
+  transition: 0.4s;
+  padding: 8px;
+  background: var(--color);
+  border: 2px solid black;
+  color: var(--text2);
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 4px;
+  margin-right: 10px;
+  box-shadow: 2px 2px 0px black;
+}
+
+input[type="file"]::file-selector-button:hover:not(:disabled) {
+  filter: brightness(90%);
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+input[type="file"]::file-selector-button:active {
+  filter: brightness(80%);
+  scale: 0.99;
+}
+
+input[type="color"] {
+  appearance: none;
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+  background-color: transparent;
+  width: 30px;
+  height: 34px;
+  margin: 4px;
+}
+
+input[type="color"]::-moz-color-swatch {
+  border-radius: 4px;
+  border: 2px solid black;
+  padding: 0px;
+  box-shadow: 2px 2px 0px black;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border-radius: 4px;
+  border: 2px solid black;
+  padding: 0px;
+  box-shadow: 2px 2px 0px black;
+}
+
+img,
+input[type="input"] {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 2px solid black;
+  margin: 4px;
+  box-shadow: 2px 2px black;
+  cursor: pointer;
+}
+
+.img-nav {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 2px solid black;
+  margin: 4px;
+  box-shadow: 2px 2px black;
+  cursor: pointer;
+}
+
+img:hover:not(:disabled),
+input[type="input"]:hover:not(:disabled) {
+  filter: brightness(95%);
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+.card {
+  /* width: 200px;
+  height: 300px; */
+  background-color: var(--back);
+  border: 2px solid black;
+  float: left;
+  margin: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 2px 2px black;
+}
+
+.card:hover:not(:disabled) {
+  filter: brightness(95%);
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+.card-title {
+  font-weight: 700;
+  text-align: center;
+}
+
+.bg-texture {
+  text-align: center;
+  background-color: #38b000;
+  background-image: url("img/texture.png");
+  background-blend-mode: multiply;
+}
+
+.bg-texture h1 {
+  color: whitesmoke !important;
+}
+
+b,
+strong {
+  color: var(--green);
+  font-size: x-large;
+}
+
+u {
+  text-decoration: none;
+  border-bottom: 1px solid var(--color);
+}
+
+s {
+  text-decoration: var(--color) line-through;
+}
+
+nav {
+  position: fixed;
+  height: 40px;
+  background-color: var(--back);
+  border-bottom: 2px solid black;
+  padding: 0px 8px 0px 8px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+nav a {
+  float: left;
+  display: flex;
+  align-items: center;
+  margin: 0px 8px 0px 8px;
+  cursor: pointer;
+  color: var(--text);
+  top: 50%;
+  position: relative;
+  transform: translate(0, -50%);
+  font-weight: 650;
+  border-bottom: none !important;
+}
+
+nav a:hover:not(:disabled) {
+  filter: brightness(120%);
+}
+
+.nav_right {
+  float: right !important;
+}
+
+footer {
+  position: relative;
+  height: 40px;
+  background-color: var(--back);
+  border-top: 2px solid black;
+  /* bottom: -20px; */
+  /* left: -20px; */
+  /* width: calc(100% + 40px); */
+  z-index: 10;
+  text-align: center;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+}
