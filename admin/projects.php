@@ -47,7 +47,7 @@
                         <legend class="float-none w-auto px-3">Projects Management</legend>
 
                         <div align="right" class="mb-4">
-                            <a href="add-project.php" class="btn btn-primary">Add New Project</a>
+                            <button class="" onclick="window.location.href='add-project.php';">Add New Project</button>
                         </div>
 
                         <table class="table table-bordered">

@@ -47,7 +47,7 @@
                         <legend class="float-none w-auto px-3">User Management</legend>
 
                         <div align="right" class="mb-4">
-                            <a href="add-user.php" class="btn btn-primary">Add New User</a>
+                            <button class="" onclick="window.location.href='add-user.php';">Add New User</button>
                         </div>
 
                         <table class="table table-bordered">

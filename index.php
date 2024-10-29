@@ -172,7 +172,7 @@ $queryInstruktur = mysqli_query($connection, "SELECT * FROM projects ORDER BY id
               </div>
 
               <!-- Right Content -->
-               <div class="col-md-6">
+               <div class="col-md-6 p-3">
                 <?php
                     if (isset($_GET['status'])) {
                         if ($_GET['status'] == "success") {
