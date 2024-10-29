@@ -3,7 +3,7 @@
   //muncul/pilih sebuah atau semua kolom dari table user
   include 'connection.php';
   
-  $queryUser = mysqli_query($connection, "SELECT * FROM users");
+  $queryContact = mysqli_query($connection, "SELECT * FROM form_contact WHERE deleted_at IS NULL");
   //mysqli_fetch_assoc($query) = untuk menjadikan hasil query menjadi sebuah data (object/array)
 
   //jika parameter ada ?delete=value[id] param
@@ -11,8 +11,8 @@
     $id = $_GET['delete']; //mengambil nilai params
 
     //query / perintah hapus
-    $delete = mysqli_query($connection, "DELETE FROM users WHERE id='$id'");
-    header("location:user.php?hapus=berhasil");
+    $delete = mysqli_query($connection, "DELETE FROM form_contact WHERE id='$id'");
+    header("location:form-contact-submission.php?hapus=berhasil");
   }
 ?>
 
@@ -23,7 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <link rel="stylesheet" href="../assets/bootstrap-5.3.3-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/style.css">
-    <title>Dashboard Management</title>
+    <title>Form Data</title>
     <meta name="description" content="" />
 </head>
 <body>
@@ -44,37 +44,45 @@
                                 </div>
                         <?php endif ?>
 
-                        <legend class="float-none w-auto px-3">User Management</legend>
+                        <legend class="float-none w-auto px-3">Messages</legend>
 
-                        <div align="right" class="mb-4">
+                        <!-- <div align="right" class="mb-4">
                             <a href="add-user.php" class="btn btn-primary">Add New User</a>
-                        </div>
+                        </div> -->
 
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Name</th>
+                                    <th>Phone Number</th>
                                     <th>Email</th>
-                                    <th>Photos</th>
+                                    <th>Subject</th>
+                                    <th>Messages</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no = 1; while ($user = mysqli_fetch_assoc($queryUser)): ?>
+                                <?php $no = 1; 
+                                $rowContacts = mysqli_fetch_all($queryContact, MYSQLI_ASSOC);
+                                foreach ($rowContacts as $rowContact) { ?>
                                     <tr>
                                         <td><?php echo $no++ ?></td>
-                                        <td><?php echo $user['nama']; ?></td>
-                                        <td><?php echo $user['email']; ?></td>
+                                        <td><?php echo $rowContact['nama']; ?></td>
+                                        <td><?php echo $rowContact['phone_number']; ?></td>
+                                        <td><?php echo $rowContact['email']; ?></td>
+                                        <td><?php echo $rowContact['subject']; ?></td>
+                                        <td><?php echo $rowContact['message']; ?></td>
                                         <td>
-                                            <img src="upload/<?php echo $user['foto']; ?>" alt="User Photo" style="width: 100px; height: 100px;">
-                                        </td>
-                                        <td>
-                                            <a href="add-user.php?edit=<?php echo $user['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                                            <a href="user.php?delete=<?php echo $user['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+                                            <!-- <a href="kirim-pesan.php?pesanId=<?php echo $rowContact['id'] ?>" class="btn btn-warning btn-sm">
+                                                    Reply Message
+                                            </a> -->
+                                            <a onclick="return confirm('Apakah Anda yakin akan menghapus data ini?')" href="form-contact-submission.php?delete=<?php echo $rowContact['id'] ?>" class="btn btn-danger btn-sm">
+                                                Delete
+                                            </a>
                                         </td>
                                     </tr>
-                                <?php endwhile; ?>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

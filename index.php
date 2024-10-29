@@ -160,20 +160,20 @@
 
               <!-- Right Content -->
                <div class="col-md-6">
-                  <form action="" method="POST">
+                  <form action="form-controller/form-data.php" method="POST">
                             <div class="row">
                                 <div class="col-6 p-2">
-                                    <input type="text" name="name" class="form-control mb-3" placeholder="Your Name" />
+                                    <input type="text" name="nama" class="form-control mb-3" placeholder="Your Name" />
                                     <input type="email" name="email" class="form-control mb-3" placeholder="E-mail" />
                                     <textarea name="message" cols="30" rows="10" placeholder="Your Messages"></textarea>
                                 </div>
                                 <div class="col-6 p-2">
-                                    <input type="number" name="phone" class="form-control mb-3" placeholder="Phone Number" />
+                                    <input type="number" name="phone_number" class="form-control mb-3" placeholder="Phone Number" />
                                     <input type="text" name="subject" class="form-control mb-3" placeholder="Subject" />
                                     
                                 </div>
                             </div>
-                            <input type="submit" value="Get in touch :D" />
+                            <input name="send" type="submit" value="Get in touch :D" />
                     </form>
                 </div>
             </div>
