@@ -1,7 +1,7 @@
 <?php
 include 'admin/connection.php';
 
-$queryInstruktur = mysqli_query($connection, "SELECT * FROM projects ORDER BY id DESC LIMIT 4");
+$queryProject = mysqli_query($connection, "SELECT * FROM projects ORDER BY id DESC LIMIT 4");
 
 ?>
 <!DOCTYPE html>
@@ -83,19 +83,19 @@ $queryInstruktur = mysqli_query($connection, "SELECT * FROM projects ORDER BY id
 
           <div class="col-md-12 p-4">
             <div class="row">
-              <?php while ($rowInstruktur = mysqli_fetch_assoc($queryInstruktur)): ?>
+              <?php while ($rowProject = mysqli_fetch_assoc($queryProject)): ?>
               <div class="col-md-6">
                 <div class="row p-3">
                   <div class="card">
                     
                       <div class="col-sm-4">
-                        <img src="admin/upload/<?php echo $rowInstruktur['foto'] ?>" alt="...">
+                        <img src="admin/upload/<?php echo $rowProject['foto'] ?>" alt="...">
                       </div>
                       <div class="row p-3">
                         <div class="col-sm-12">
-                          <div class="card-title p-1"><?php echo $rowInstruktur['project_name'] ?></div>
+                          <div class="card-title p-1"><?php echo $rowProject['project_name'] ?></div>
                             <div class="card-body">
-                              <p><?php echo $rowInstruktur['project_desc'] ?></p>
+                              <p><?php echo $rowProject['project_desc'] ?></p>
                             </div>
                         </div>
                         </div>
@@ -123,9 +123,9 @@ $queryInstruktur = mysqli_query($connection, "SELECT * FROM projects ORDER BY id
 
                
 
-                <!-- Profile Picture -->
-                <div class="col-md-6 col-12 text-center pt-5">
-                    <img src="assets/img/study_assets.png" alt="Profile Picture" class="img-fluid" />
+                <!-- Study -->
+                <div class="col-md-6 col-12 text-center pt-3">
+                    <img style="width:300px; height:400px; border: none !important; box-shadow: none;" src="assets/img/study_assets.png" alt="Study Timeline" class="img-fluid" />
                 </div>
 
                 <div class="col-md-6 p-5">

@@ -232,7 +232,7 @@
                                                 </div>
                                             </div>
                                             <div class="mb-3">
-                                                <button class="btn btn-primary" name="<?php echo isset($_GET['edit']) ? 'edit' : 'simpan' ?>" type="submit">Save</button>
+                                                <input value="Save" name="<?php echo isset($_GET['edit']) ? 'edit' : 'simpan' ?>" type="submit">
                                             </div>
                                         </form>
                                 </div>

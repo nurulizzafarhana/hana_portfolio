@@ -149,7 +149,7 @@
                                                 </div>
                                             </div>
                                             <div class="mb-3">
-                                                <input value="Simpan" name="<?php echo isset($_GET['edit']) ? 'edit' : 'simpan' ?>" type="submit">
+                                                <input value="Save" name="<?php echo isset($_GET['edit']) ? 'edit' : 'simpan' ?>" type="submit">
                                             </div>
                                         </form>
                                 </div>
