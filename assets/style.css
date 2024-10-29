@@ -76,7 +76,12 @@ body {
 marquee {
   display: inline-block; /* Make it an inline block for proper animation */
   white-space: nowrap; /* Prevent wrapping */
-  animation: marquee 10s linear forwards; /* Adjust the duration (10s) as needed */
+  animation: marquee 15s linear forwards; /* Adjust the duration (10s) as needed */
+}
+
+.marquee-text {
+  font-weight: 900;
+  color: #f8f8f8;
 }
 
 @keyframes marquee {
@@ -575,7 +580,7 @@ input[type="input"]:hover:not(:disabled) {
 
 .card-title {
   font-weight: 700;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .bg-texture {

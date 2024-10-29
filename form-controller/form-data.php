@@ -15,14 +15,14 @@ if (isset($_POST['send'])) {
     $select = mysqli_query($connection, "SELECT email FROM form_contact WHERE email = '$email'");
 
     if (mysqli_num_rows($select) > 0) {
-        header("Location: ../index.php?status=email-sudahada");
+        header("Location: ../index.php?status=email-sudahada&#contact");
         exit();
     } else {
         // query + table_name + (isi kolom table) + VALUES + ()
         $insert = mysqli_query($connection, "INSERT INTO form_contact (nama, phone_number, email, subject, message) VALUES ('$nama', '$phone_number','$email','$subject','$message')");
     
         if ($insert) {
-            header("Location: ../index.php?status=success");
+            header("Location: ../index.php?status=success&#contact");
             exit();
         }
     }

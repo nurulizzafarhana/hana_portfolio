@@ -1,3 +1,9 @@
+<?php
+include 'admin/connection.php';
+
+$queryInstruktur = mysqli_query($connection, "SELECT * FROM projects ORDER BY id DESC LIMIT 2");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,8 +40,8 @@
   <?php include 'inc/nav.php'; ?>
     <!-- End of NavBar -->
 
-    <div class="pt-2" style="background-color: #f9f5f2;">
-      <marquee width="100%" direction="right" height="20px">
+    <div class="pt-5" style="background-color: #f9f5f2;">
+      <marquee class="marquee-text bg-texture" width="100%" direction="right" height="20px">
               HELLO HELLO HELLO HELLO HELLO HELLO HELLO HELLO <?php echo $rowSetting['nama'] ?>
       </marquee>
     </div>
@@ -52,7 +58,7 @@
                     <!-- A passionate Informatics Management Associate Degree graduate, possessing a strong foundation in web development. -->
                     
                     <button class="green">
-                        <a href="">Start Growing or whatevs</a>
+                        <a href="https://wa.me/+6285781648897">Start Growing or whatevs</a>
                     </button>
                 </div>
                 
@@ -77,24 +83,27 @@
 
           <div class="col-md-12 p-4">
             <div class="row">
+              <?php while ($rowInstruktur = mysqli_fetch_assoc($queryInstruktur)): ?>
               <div class="col-md-6">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card">
-                  <div class="card-title p-1">Lolololo</div>
-                    <div class="card-body">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente iure commodi, dicta eligendi cumque quidem fuga dolor laudantium. Odit natus, quaerat corrupti aut aspernatur delectus commodi id culpa repellat corporis.</p>
-                    </div>
+                <div class="row p-3">
+                  <div class="card">
+                    
+                      <div class="col-sm-6">
+                        <img src="admin/upload/<?php echo $rowInstruktur['foto'] ?>" class="img-fluid" alt="...">
+                      </div>
+                      <div class="row p-3">
+                        <div class="col-sm-6">
+                          <div class="card-title p-1"><?php echo $rowInstruktur['project_name'] ?></div>
+                            <div class="card-body">
+                              <p><?php echo $rowInstruktur['project_desc'] ?></p>
+                            </div>
+                        </div>
+                        </div>
+                        
+                  </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card">
-                <div class="card-title p-1">Lolololo</div>
-                    <div class="card-body">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita itaque quasi corrupti earum non quas iure suscipit, adipisci cupiditate optio, sapiente aut libero praesentium in quis. Nobis molestias omnis nisi?</p>
-                    </div>
-                </div>
-              </div>
+              <?php endwhile ?>
             </div>
           </div>
         </div>
@@ -107,6 +116,10 @@
       <section id="about" class="pt-3" style="background-color: #f9f5f2;">
         <div class="container-xl">
             <div class="row p-5">
+
+            <div class="col-md-12 text-center">
+              <h1 class="p-4">ABOUT</h1>
+            </div>
 
                
 
@@ -138,7 +151,7 @@
         <!-- CRUD FORM -->
 
         <section id="contact" class="container-md">
-          <div class="row p-2">
+          <div class="row p-5">
 
           <!-- Title -->
             <div class="col-md-12 text-center">
@@ -160,6 +173,19 @@
 
               <!-- Right Content -->
                <div class="col-md-6">
+                <?php
+                    if (isset($_GET['status'])) {
+                        if ($_GET['status'] == "success") {
+                            ?>
+                            <div class='alert alert-success' role='alert'>Your data has been successfully added! Please wait for a response.</div>
+                            <?php
+                        } elseif ($_GET['status'] == "email-sudahada") {
+                            ?>
+                            <div class='alert alert-danger' role='alert'>This email is already in use. Please try a different email</div>
+                            <?php
+                        }
+                    }
+                    ?>
                   <form action="form-controller/form-data.php" method="POST">
                             <div class="row">
                                 <div class="col-6 p-2">
