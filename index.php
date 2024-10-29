@@ -1,7 +1,7 @@
 <?php
 include 'admin/connection.php';
 
-$queryInstruktur = mysqli_query($connection, "SELECT * FROM projects ORDER BY id DESC LIMIT 2");
+$queryInstruktur = mysqli_query($connection, "SELECT * FROM projects ORDER BY id DESC LIMIT 4");
 
 ?>
 <!DOCTYPE html>
@@ -75,7 +75,7 @@ $queryInstruktur = mysqli_query($connection, "SELECT * FROM projects ORDER BY id
      <!-- FEATURED PROJECT -->
       <!-- Contents will be uploaded/managed by user, make query LIMIT 2, loop by existed data -->
 
-      <section id="my-work" class="container-fluid">
+      <section id="my-work" class="container-xl">
         <div class="row p-2">
           <div class="col-md-12 text-center">
             <h1 class="p-4">FEATURED PROJECT</h1>
@@ -88,18 +88,18 @@ $queryInstruktur = mysqli_query($connection, "SELECT * FROM projects ORDER BY id
                 <div class="row p-3">
                   <div class="card">
                     
-                      <div class="col-sm-6">
-                        <img src="admin/upload/<?php echo $rowInstruktur['foto'] ?>" class="img-fluid" alt="...">
+                      <div class="col-sm-4">
+                        <img src="admin/upload/<?php echo $rowInstruktur['foto'] ?>" alt="...">
                       </div>
                       <div class="row p-3">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                           <div class="card-title p-1"><?php echo $rowInstruktur['project_name'] ?></div>
                             <div class="card-body">
                               <p><?php echo $rowInstruktur['project_desc'] ?></p>
                             </div>
                         </div>
                         </div>
-                        
+
                   </div>
                 </div>
               </div>
