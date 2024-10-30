@@ -644,6 +644,40 @@ nav a:hover:not(:disabled) {
   float: right !important;
 }
 
+.bg-skills {
+  background: linear-gradient(45deg, #4dc93d, #e6ff07);
+}
+/* Styling the skills list */
+.skills-list {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0.5rem; /* Remove padding */
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  gap: 10px; /* Add some space between each item */
+}
+
+.skill-item {
+  background-color: var(--back);
+  border: 2px solid black;
+  margin: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 2px 2px black;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  width: auto;
+}
+
+.skill-item:hover:not(:disabled) {
+  background-color: var(--pink);
+  filter: brightness(95%);
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
 footer {
   position: relative;
   height: 40px;

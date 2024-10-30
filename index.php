@@ -2,6 +2,7 @@
 include 'admin/connection.php';
 
 $queryProject = mysqli_query($connection, "SELECT * FROM projects ORDER BY id DESC LIMIT 4");
+$queryShowSkill = mysqli_query($connection,"SELECT * FROM skills ORDER BY id ASC LIMIT 10");
 
 ?>
 <!DOCTYPE html>
@@ -64,7 +65,7 @@ $queryProject = mysqli_query($connection, "SELECT * FROM projects ORDER BY id DE
                 
                 <!-- Profile Picture -->
                 <div class="col-md-3 text-center">
-                    <img src="assets/img/profilepic.png" alt="Profile Picture" class="img-fluid" />
+                    <img src="admin/upload/<?php echo $rowSetting['logo'] ?>" alt="Profile Picture" class="img-fluid" />
                 </div>
             </div>
         </div>
@@ -108,6 +109,40 @@ $queryProject = mysqli_query($connection, "SELECT * FROM projects ORDER BY id DE
           </div>
         </div>
       </section>
+
+
+      <!-- MY SKILLS -->
+      <section id="my-skills" class="container-fluid bg-skills">
+        <div class="row p-2">
+
+        <!-- SECTION TITLE -->
+          <div class="col-md-12 text-center">
+            <h1 class="p-2">SKILLS</h1>
+          </div>
+        <!-- END -->
+
+
+            <!-- SECTION CONTENT -->
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 d-inline-flex">
+                  <ul class="skills-list">
+                    <?php while ($rowShowSkill = mysqli_fetch_assoc($queryShowSkill)): ?>
+                      <li class="skill-item">
+                        <?php echo $rowShowSkill['skill_name'] ?>
+                      </li>
+                    <?php endwhile ?>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- END -->
+
+
+        </div>
+      </section>
+      <!-- END OF THIS SECTION -->
 
 
 
