@@ -9,5 +9,6 @@ $rowSetting = mysqli_fetch_assoc($querySetting);
     <a href=""><img class="img-nav" src="admin/upload/<?php echo $rowSetting['logo'] ?>" alt=""></a>
     <a href="#about"class="nav_right">About</a>
     <a href="#my-work"class="nav_right">My Work</a>
+    <a href="#my-skills"class="nav_right">Skills</a>
     <a href="#contact" class="nav_right">Contact</a>
 </nav>

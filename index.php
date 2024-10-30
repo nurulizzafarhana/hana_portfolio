@@ -90,7 +90,7 @@ $queryShowSkill = mysqli_query($connection,"SELECT * FROM skills ORDER BY id ASC
                   <div class="card">
                     
                       <div class="col-sm-4">
-                        <img src="admin/upload/<?php echo $rowProject['foto'] ?>" alt="...">
+                        <img src="admin/upload/<?php echo $rowProject['foto'] ?>" style="width:400px; height:300px;" alt="...">
                       </div>
                       <div class="row p-3">
                         <div class="col-sm-12">
@@ -112,7 +112,7 @@ $queryShowSkill = mysqli_query($connection,"SELECT * FROM skills ORDER BY id ASC
 
 
       <!-- MY SKILLS -->
-      <section id="my-skills" class="container-fluid bg-skills">
+      <section id="my-skills" class="container-fluid bg-skills pt-5">
         <div class="row p-2">
 
         <!-- SECTION TITLE -->
