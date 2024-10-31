@@ -2,7 +2,7 @@
 include 'admin/connection.php';
 
 $queryProject = mysqli_query($connection, "SELECT * FROM projects ORDER BY id DESC LIMIT 4");
-$queryShowSkill = mysqli_query($connection,"SELECT * FROM skills ORDER BY id ASC LIMIT 10");
+$queryShowSkill = mysqli_query($connection,"SELECT * FROM skills ORDER BY id DESC LIMIT 10");
 
 ?>
 <!DOCTYPE html>
@@ -89,7 +89,7 @@ $queryShowSkill = mysqli_query($connection,"SELECT * FROM skills ORDER BY id ASC
                 <div class="row p-3">
                   <div class="card">
                     
-                      <div class="col-sm-4">
+                      <div class="col-md-12 text-center">
                         <img src="admin/upload/<?php echo $rowProject['foto'] ?>" style="width:400px; height:300px;" alt="...">
                       </div>
                       <div class="row p-3">
